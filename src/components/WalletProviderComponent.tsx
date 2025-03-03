@@ -21,7 +21,7 @@ globalThis.Buffer = Buffer;
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
 
-const PI_MANIA_WALLET_ADDRESS = "DQj1xHy2qq5g1mbf7aHnhKovHgfL5jwLmPYu68ULpKA7";
+const RECEIVER_WALLET_ADDRESS = "DQj1xHy2qq5g1mbf7aHnhKovHgfL5jwLmPYu68ULpKA7";
 const TOLL_PRICE = 100000000;
 
 const SendButton = ({ updateButtonState }) => {
@@ -43,7 +43,7 @@ const SendButton = ({ updateButtonState }) => {
                 return;
             }
 
-            if ((balance / LAMPORTS_PER_SOL) < 0.15) {
+            if ((balance / LAMPORTS_PER_SOL) < 0.1) {
                 console.log((balance / LAMPORTS_PER_SOL));
                 alert('You do not have enough SOL balance in your wallet.');
                 return;
@@ -68,7 +68,7 @@ const SendButton = ({ updateButtonState }) => {
             transaction.add(
                 SystemProgram.transfer({
                     fromPubkey: publicKey,
-                    toPubkey: new PublicKey(PI_MANIA_WALLET_ADDRESS),
+                    toPubkey: new PublicKey(RECEIVER_WALLET_ADDRESS),
                     lamports: TOLL_PRICE,
                 })
             );

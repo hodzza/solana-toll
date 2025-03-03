@@ -1,5 +1,5 @@
-import React, { useState } from 'react'; // Import useState
-import logo from './solana-logo.png';
+import React, { useState } from 'react';
+import logo from './logo-rug.png';
 import './App.css';
 import { WalletProviderComponent } from './components/WalletProviderComponent.tsx';
 
@@ -8,7 +8,7 @@ function App() {
   const [telegramName, setTelegramName] = useState('');
   const [subscription, setSubscription] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [transactionCompleted, setTransactionCompleted] = useState(true);
+  const [transactionCompleted, setTransactionCompleted] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +43,10 @@ function App() {
         <div className="logo-container">
           <img src={logo} alt="Logo" className="logo" />
         </div>
-        <h1>Sign Up for Solana MP Rug Tool</h1>
+        <div className="description-container">
+          <p>Sign up in order to access MP Rug tool. Once you populate all the fields, make the transaction and submit the form, you will receive an email with download link, access key and further instructions on how to use the tool.</p>
+        </div>
+        <h2>Welcome to Solana MP Rug Tool</h2>
         <form className="signup-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -79,8 +82,8 @@ function App() {
               required
             >
               <option value="">Select an option</option>
-              <option value="1-month">1 Month Subscription</option>
-              <option value="lifetime">Lifetime Subscription</option>
+              <option value="1-month">1 Month Subscription (1 SOL)</option>
+              <option value="lifetime">Lifetime Subscription (7 SOL)</option>
             </select>
           </div>
           <WalletProviderComponent updateButtonState={updateTransactionState} />
