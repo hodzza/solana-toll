@@ -77,6 +77,9 @@
   transform-style: preserve-3d;
   perspective: 1000px;
   will-change: transform;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-header:hover {
@@ -85,14 +88,33 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Logo Section */
+/* Logo and Animation Container */
 .logo-container {
   margin-bottom: 2rem;
   position: relative;
   transform-style: preserve-3d;
   perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
+/* Lottie Animation Container */
+.lottie-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin-bottom: 1rem;
+  transform: translateZ(30px);
+  will-change: transform;
+}
+
+.lottie-container:hover {
+  transform: scale(1.05) translateZ(40px);
+}
+
+/* Logo Section */
 .logo {
   width: 120px;
   height: auto;
@@ -358,6 +380,11 @@ input::placeholder, select {
 
   .logo {
     width: 100px;
+  }
+
+  .lottie-container {
+    width: 150px;
+    height: 150px;
   }
 
   input, select {

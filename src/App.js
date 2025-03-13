@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo-rug.png';
 import './App.css';
 import { WalletProviderComponent } from './components/WalletProviderComponent.tsx';
+import Lottie from 'lottie-react';
+import blockchainAnimation from './animations/blockchain.json';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -41,6 +43,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="logo-container">
+          <div className="lottie-container">
+            <Lottie
+              animationData={blockchainAnimation}
+              loop={true}
+              autoplay={true}
+              style={{ width: '100%', height: '100%' }}
+            />
+          </div>
           <img src={logo} alt="Logo" className="logo" />
         </div>
         <div className="description-container">
