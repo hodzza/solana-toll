@@ -9,6 +9,48 @@
   color: white;
   font-family: 'Arial', sans-serif;
   padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add animated background elements */
+.App::before,
+.App::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 15s infinite ease-in-out;
+  z-index: 0;
+}
+
+.App::before {
+  top: -100px;
+  left: -100px;
+  animation-delay: -5s;
+}
+
+.App::after {
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(50px, 50px) rotate(90deg);
+  }
+  50% {
+    transform: translate(0, 100px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-50px, 50px) rotate(270deg);
+  }
 }
 
 .App-header {
@@ -19,25 +61,32 @@
   backdrop-filter: blur(10px);
   width: 100%;
   max-width: 450px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .App-header:hover {
   transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .logo-container {
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .logo {
   width: 120px;
   height: auto;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(2deg);
 }
 
 h1 {
@@ -45,12 +94,27 @@ h1 {
   margin-bottom: 2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  border-radius: 2px;
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  position: relative;
 }
 
 .form-group {
@@ -58,12 +122,15 @@ h1 {
   flex-direction: column;
   text-align: left;
   gap: 0.5rem;
+  position: relative;
 }
 
 label {
   font-size: 0.95rem;
   margin-bottom: 0.25rem;
   font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
 }
 
 input, select {
@@ -74,6 +141,7 @@ input, select {
   background: rgba(255, 255, 255, 0.15);
   color: white;
   transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 input:focus, select:focus {
@@ -81,6 +149,12 @@ input:focus, select:focus {
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+input:focus + label, select:focus + label {
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* Fix for dropdown text color in Chrome */
@@ -93,6 +167,7 @@ select {
 option {
   color: black !important;
   background-color: white;
+  padding: 0.5rem;
 }
 
 /* Remove default browser styling */
@@ -104,6 +179,7 @@ select {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1.5em;
+  padding-right: 2.5rem;
 }
 
 /* Placeholder styling */
@@ -117,6 +193,7 @@ input::placeholder, select {
   align-items: center;
   gap: 12px;
   margin-top: 1.5rem;
+  position: relative;
 }
 
 /* Submit button styles */
@@ -132,6 +209,28 @@ input::placeholder, select {
   margin-top: 2rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.submit-button:hover::before {
+  left: 100%;
 }
 
 .submit-button:disabled {
@@ -159,6 +258,28 @@ input::placeholder, select {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-adapter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.wallet-adapter-button:hover::before {
+  left: 100%;
 }
 
 .wallet-adapter-button:hover {
@@ -178,6 +299,28 @@ input::placeholder, select {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.send-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.send-button:hover::before {
+  left: 100%;
 }
 
 .send-button:disabled {
@@ -202,6 +345,19 @@ input::placeholder, select {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   color: #333;
   line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.description-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 /* Responsive design */
@@ -225,5 +381,11 @@ input::placeholder, select {
   .submit-button, .send-button, .wallet-adapter-button {
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
+  }
+
+  .App::before,
+  .App::after {
+    width: 200px;
+    height: 200px;
   }
 }
