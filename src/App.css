@@ -8,67 +8,90 @@
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   font-family: 'Arial', sans-serif;
+  padding: 20px;
 }
 
 .App-header {
   background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
+  transition: transform 0.3s ease;
+}
+
+.App-header:hover {
+  transform: translateY(-5px);
 }
 
 .logo-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .logo {
-  width: 100px;
+  width: 120px;
   height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   text-align: left;
+  gap: 0.5rem;
 }
 
 label {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
 }
 
 input, select {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
+  padding: 0.875rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 /* Fix for dropdown text color in Chrome */
 select {
-  color: white; /* Ensure text is visible */
-  background-color: rgba(255, 255, 255, 0.2); /* Prevents transparency issues */
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Ensure dropdown options are visible */
 option {
-  color: black !important; /* Forces black text */
+  color: black !important;
   background-color: white;
 }
 
@@ -77,6 +100,10 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5em;
 }
 
 /* Placeholder styling */
@@ -88,21 +115,23 @@ input::placeholder, select {
 .wallet-button-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 1rem;
+  gap: 12px;
+  margin-top: 1.5rem;
 }
 
 /* Submit button styles */
 .submit-button {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 5px;
-  background: #667eea;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 60px;
-  transition: background 0.3s ease, opacity 0.3s ease;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .submit-button:disabled {
@@ -110,38 +139,45 @@ input::placeholder, select {
   color: #666666;
   cursor: not-allowed;
   opacity: 0.7;
+  box-shadow: none;
 }
 
 .submit-button:not(:disabled):hover {
-  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Wallet adapter button */
 .wallet-adapter-button {
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  padding: 0.875rem 1.75rem;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .wallet-adapter-button:hover {
-  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Send button styles */
 .send-button {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 5px;
-  background: #4caf50;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease, opacity 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .send-button:disabled {
@@ -149,18 +185,45 @@ input::placeholder, select {
   color: #666666;
   cursor: not-allowed;
   opacity: 0.7;
+  box-shadow: none;
 }
 
 .send-button:not(:disabled):hover {
-  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .description-container {
-  background: linear-gradient(to bottom, white, #f0f0f0);
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  margin-bottom: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  color: gray;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .App-header {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  input, select {
+    padding: 0.75rem;
+  }
+
+  .submit-button, .send-button, .wallet-adapter-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
 }
