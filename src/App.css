@@ -237,6 +237,7 @@ h1::after {
   gap: 1rem;
   width: 100%;
   margin: 0;
+  position: relative;
 }
 
 /* Button Base Styles */
@@ -250,7 +251,7 @@ h1::after {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   background: var(--primary-gradient);
   color: white;
   display: flex;
@@ -261,10 +262,33 @@ h1::after {
   overflow: hidden;
 }
 
+/* Submit Button Styles */
+.submit-button {
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+/* Wallet Button Focus Effects */
+.wallet-adapter-button:focus ~ .submit-button,
+.wallet-adapter-button:active ~ .submit-button,
+.wallet-adapter-dropdown-list-active ~ .submit-button {
+  opacity: 0.1;
+  transform: translateY(5px);
+  pointer-events: none;
+}
+
+/* Submit Button States */
 .submit-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   background: #cccccc;
+}
+
+/* Wallet Button Active State */
+.wallet-adapter-button:active,
+.wallet-adapter-button:focus {
+  transform: translateY(2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
 /* Connected Wallet Status */
