@@ -242,6 +242,33 @@ input::placeholder, select {
   transform: translateZ(5px);
   flex-wrap: wrap;
   justify-content: center;
+  z-index: 10;
+}
+
+/* Wallet Adapter Styles */
+.wallet-adapter-button-wrapper {
+  position: relative;
+  z-index: 100;
+}
+
+.wallet-adapter-modal-wrapper {
+  z-index: 1000;
+}
+
+.wallet-adapter-modal {
+  z-index: 1001;
+}
+
+.wallet-adapter-modal-button-close {
+  z-index: 1002;
+}
+
+.wallet-adapter-modal-list {
+  z-index: 1003;
+}
+
+.wallet-adapter-modal-list-more {
+  z-index: 1004;
 }
 
 /* Button Base Styles */
