@@ -54,7 +54,7 @@ function App() {
           <img src={logo} alt="Logo" className="logo" />
         </div>
         <div className="description-container">
-          <p>Sign up in order to access MP Rug tool. Once you populate all the fields, make the transaction and submit the form, you will receive an email with download link, access key and further instructions on how to use the tool.</p>
+          <p>Welcome to the Solana MP Rug Tool. Complete your registration by filling out the form below and making a one-time payment. Upon completion, you'll receive instant access to the tool via email, including your unique access key and setup guide.</p>
         </div>
         <h2>Welcome to Solana MP Rug Tool</h2>
         <form className="signup-form" onSubmit={handleSubmit}>
