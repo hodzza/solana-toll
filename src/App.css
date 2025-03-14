@@ -152,7 +152,9 @@ h1 {
   font-weight: 700;
   letter-spacing: -0.5px;
   background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
   position: relative;
 }
@@ -230,6 +232,8 @@ input::placeholder {
   letter-spacing: 0.75px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
