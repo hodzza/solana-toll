@@ -210,7 +210,7 @@ input::placeholder {
   justify-content: center;
   gap: 1.25rem;
   width: 100%;
-  margin: 2rem 0;
+  margin: 2rem 0 4rem 0;
   position: relative;
   min-height: 48px;
   z-index: 10;
