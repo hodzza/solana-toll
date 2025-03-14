@@ -204,84 +204,108 @@ input::placeholder {
 .wallet-button-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.25rem;
   width: 100%;
   margin: 2rem 0;
   position: relative;
+  min-height: 48px;
+}
+
+/* Base Button Styles */
+.wallet-adapter-button,
+.confirm-transaction {
+  flex: 1;
+  min-width: 160px;
+  height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Select Wallet Button */
 .wallet-adapter-button {
-  flex: 1;
   background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 16px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
-  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.wallet-adapter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .wallet-adapter-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(71, 118, 230, 0.3);
-  background: linear-gradient(135deg, #5685E7 0%, #9A65EA 100%);
-  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(71, 118, 230, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.wallet-adapter-button:hover::before {
+  opacity: 1;
 }
 
 .wallet-adapter-button:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 10px rgba(71, 118, 230, 0.2);
+  box-shadow: 0 2px 8px rgba(71, 118, 230, 0.2);
 }
 
 /* Confirm Transaction Button */
 .confirm-transaction {
-  flex: 1;
   background: linear-gradient(135deg, #34D399 0%, #059669 100%);
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 16px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.2;
-  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.confirm-transaction::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .confirm-transaction:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(52, 211, 153, 0.3);
-  background: linear-gradient(135deg, #3EE4A8 0%, #06B077 100%);
-  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(52, 211, 153, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.confirm-transaction:hover::before {
+  opacity: 1;
 }
 
 .confirm-transaction:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 10px rgba(52, 211, 153, 0.2);
+  box-shadow: 0 2px 8px rgba(52, 211, 153, 0.2);
 }
 
 /* Submit Button */
@@ -394,10 +418,15 @@ input::placeholder {
     font-size: 2rem;
   }
 
+  .wallet-button-container {
+    gap: 1rem;
+  }
+
   .wallet-adapter-button,
-  .submit-button {
-    padding: 1rem;
-    font-size: 1rem;
+  .confirm-transaction {
+    min-width: 140px;
+    padding: 0 1rem;
+    font-size: 0.85rem;
   }
 
   input, select {
