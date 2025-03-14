@@ -176,17 +176,17 @@ h1::after {
   width: 100%;
   position: relative;
   z-index: 100;
+  margin-bottom: 1rem;
 }
 
 .wallet-adapter-dropdown {
   position: relative;
-  display: inline-block;
   width: 100%;
 }
 
 .wallet-adapter-dropdown-list {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 0;
   width: 100%;
   background: rgb(39, 44, 61);
@@ -195,89 +195,26 @@ h1::after {
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
   padding: 8px;
-}
-
-.wallet-adapter-dropdown-list-item {
-  padding: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: white;
-  background: transparent;
-  border: none;
-  width: 100%;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.wallet-adapter-dropdown-list-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Button Container */
-.wallet-button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  margin: 0;
-  position: relative;
-  min-height: 200px; /* Ensure space for dropdown */
+  margin-top: 0.5rem;
 }
 
 /* Submit Button */
 .submit-button {
-  margin-top: 60px;
+  width: 100%;
   transition: all 0.3s ease;
   opacity: 1;
   visibility: visible;
   position: relative;
   z-index: 1;
+  margin-top: 1rem;
 }
 
-/* Wallet Dropdown Active State */
-.wallet-adapter-dropdown-list ~ .submit-button,
-.wallet-adapter-dropdown[data-visible="true"] ~ .submit-button,
-.wallet-adapter-button:focus ~ .submit-button {
-  opacity: 0;
-  visibility: hidden;
+/* Submit Button State when Dropdown is Active */
+.wallet-adapter-dropdown-list:not(:empty) ~ .submit-button,
+.wallet-adapter-dropdown[data-visible="true"] ~ .submit-button {
+  opacity: 0.1;
+  transform: translateY(0);
   pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out, transform 0.2s ease-out;
-}
-
-/* Wallet Adapter Button */
-.wallet-adapter-button {
-  position: relative;
-  z-index: 1000;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-/* Wallet Adapter Dropdown */
-.wallet-adapter-dropdown {
-  position: relative;
-  z-index: 1000;
-}
-
-.wallet-adapter-dropdown-list {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  width: 100%;
-  background: rgb(39, 44, 61);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px;
-  z-index: 1000;
-}
-
-/* Confirm Transaction Button */
-.confirm-transaction {
-  margin-top: 20px;
-  z-index: 1;
 }
 
 /* Button Base Styles */
@@ -302,7 +239,7 @@ h1::after {
 }
 
 .wallet-adapter-button {
-  z-index: 100;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* Wallet Button Focus Effects */
